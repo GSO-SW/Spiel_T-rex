@@ -36,7 +36,7 @@
             // 
             this.SpielZähler.Enabled = true;
             this.SpielZähler.Interval = 20;
-            this.SpielZähler.Tick += new System.EventHandler(this.GaameEvent);
+            this.SpielZähler.Tick += new System.EventHandler(this.GameEvent);
             // 
             // Spiel
             // 

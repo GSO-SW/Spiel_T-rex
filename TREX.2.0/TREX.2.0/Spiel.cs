@@ -17,13 +17,13 @@ namespace TREX._2._0
         Image T_rex;
         Bitmap[] Kakteen;
         List<Rectangle> rectangles;
-        int Standardhöhe= 261;
+        int Standardhöhe = 261;
         int Sprungkraft = 0;
         int Höhe = 261;
         int Score = 0;
         int hindernis_geschwindigkeit = -6;
         bool springen = false;
-        
+
         #endregion
         public Spiel()
         {
@@ -52,7 +52,7 @@ namespace TREX._2._0
             graphics.DrawImage(Kakteen[1], rectangles[1]);
         }
         //Das ist der Timer 
-        private void GaameEvent(object sender, EventArgs e)
+        private void GameEvent(object sender, EventArgs e)
         {
             for (int i = rectangles.Count - 1; i >= 0; i--)       // wir zöhlen um einas ab 
             {
@@ -80,6 +80,7 @@ namespace TREX._2._0
             }
             Springen();
             Rändern();
+            Kollision();
         }
         //Bilder sollen Laden
         private void Rändern()
@@ -109,6 +110,28 @@ namespace TREX._2._0
             {
                 Sprungkraft = -30;
                 springen = true;
+            }
+        }
+        private void Kollision()
+        {
+
+            bool Überprüfen = false;
+
+            Rectangle rect = new Rectangle(20, Höhe, T_rex.Width, T_rex.Height);
+            for (int i = 0; i < rectangles.Count; i++)
+            {
+                if (rect.IntersectsWith(rectangles[i]))
+                {
+                    Überprüfen = true;
+                    ImageAnimator.StopAnimate(T_rex, new EventHandler(GameEvent));
+                }
+
+            }
+            if (Überprüfen)
+            {
+                SpielZähler.Stop();
+                MessageBox.Show("Verloren und deine erreichte Punktzahl lautet:" + Score);
+                Close();
             }
         }
     }
