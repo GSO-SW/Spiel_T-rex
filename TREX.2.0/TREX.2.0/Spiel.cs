@@ -15,7 +15,7 @@ namespace TREX._2._0
     {
         #region Eigenschaften
         Image T_rex;
-        Bitmap[] kakteen;
+        Bitmap[] Kakteen;
         List<Rectangle> rectangles;
         int Standardhöhe = 261;
         int Höhe = 261;
@@ -24,7 +24,7 @@ namespace TREX._2._0
         {
             InitializeComponent();
             T_rex = Properties.Resources.rennen;
-            kakteen = new Bitmap[] { Properties.Resources._2Kaktus, Properties.Resources.Kaktus };
+            Kakteen = new Bitmap[] { Properties.Resources._2Kaktus, Properties.Resources.Kaktus };
             rectangles = new List<Rectangle>();
 
             rectangles.Add(new Rectangle(500, Standardhöhe, 40, 40));
@@ -39,8 +39,13 @@ namespace TREX._2._0
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
+            Pen SchwarzeStift = Pens.Black;
             Graphics graphics = e.Graphics;
+            graphics.DrawLine(SchwarzeStift, 0, 300, 100000, 300);
             graphics.DrawImage(T_rex,20,Höhe,T_rex.Width,T_rex.Height);
+            graphics.DrawImage(Kakteen[0], rectangles[0]);
+            graphics.DrawImage(Kakteen[1], rectangles[1]);
         }
+
     }
 }
