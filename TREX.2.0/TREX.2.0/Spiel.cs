@@ -21,6 +21,7 @@ namespace TREX._2._0
         int Sprungkraft = 0;
         int Höhe = 261;
         int Score = 0;
+        int hindernis_geschwindigkeit = -6;
         bool springen = false;
         
         #endregion
@@ -28,10 +29,10 @@ namespace TREX._2._0
         {
             InitializeComponent();
             T_rex = Properties.Resources.rennen;
-            Kakteen = new Bitmap[] { Properties.Resources._2Kaktus, Properties.Resources.Kaktus };
+            Kakteen = new Bitmap[] { Properties.Resources._2Kaktus, Properties.Resources.Kaktus }; //fügt die Images in die bitmap hinzu
             rectangles = new List<Rectangle>();
             DoubleBuffered = true;
-            rectangles.Add(new Rectangle(500, Standardhöhe, 40, 40));
+            rectangles.Add(new Rectangle(500, Standardhöhe, 40, 40));  //fügt die pposition der rectamgels hinzu
             rectangles.Add(new Rectangle(700, Standardhöhe, 40, 40));
         }
 
@@ -50,12 +51,37 @@ namespace TREX._2._0
             graphics.DrawImage(Kakteen[0], rectangles[0]);
             graphics.DrawImage(Kakteen[1], rectangles[1]);
         }
-
+        //Das ist der Timer 
         private void GaameEvent(object sender, EventArgs e)
         {
+            for (int i = rectangles.Count - 1; i >= 0; i--)       // wir zöhlen um einas ab 
+            {
+                Point point;
+                if (rectangles[i].X + rectangles[i].Width < 0)   //ist die koordinate kleiner null
+                {
+                    Random Rand = new Random();
+                    point = new Point(this.Width + Rand.Next(10, 120), rectangles[i].Y);  // wir erstellen einen neuen punkt mit den aktualisierten Daten
+                }
+                else
+                    point = new Point(rectangles[i].X + hindernis_geschwindigkeit, rectangles[i].Y);  // wir erstellen einen neuen punkt mit den aktualisierten Daten
+
+                rectangles.Add(new Rectangle(point, rectangles[i].Size));                                                  // ertstellen ein rectangle und fügen das in die liste hinzu  
+                rectangles.RemoveAt(i);                                                                                    // entfernt das alte rectangle 
+                Score++;
+
+                if (Score >= 300)
+                {
+                    hindernis_geschwindigkeit = -16;
+                }
+                if (Score >= 1100)
+                {
+                    hindernis_geschwindigkeit = -24;
+                }
+            }
             Springen();
             Rändern();
         }
+        //Bilder sollen Laden
         private void Rändern()
         {
             this.Invalidate();
@@ -76,7 +102,7 @@ namespace TREX._2._0
 
                 springen = false;
         }
-
+        //wenn Die Space taste gedrückt wird dann soll die Sprungkraft auf -30 steigen 
         private void Spiel_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Space && !springen)
