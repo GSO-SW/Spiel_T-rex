@@ -46,6 +46,7 @@ namespace TREX._2._0
             base.OnPaint(e);
             Pen SchwarzeStift = Pens.Black;
             Graphics graphics = e.Graphics;
+            graphics.DrawString("Score:" + Score, new Font("Comic Sans MS", 10.0f), Brushes.Black, new Point(5, 10));
             graphics.DrawLine(SchwarzeStift, 0, 300, 100000, 300);
             graphics.DrawImage(T_rex, 20, Höhe, T_rex.Width, T_rex.Height);
             graphics.DrawImage(Kakteen[0], rectangles[0]);

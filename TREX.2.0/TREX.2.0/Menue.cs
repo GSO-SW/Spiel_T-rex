@@ -16,5 +16,11 @@ namespace TREX._2._0
         {
             InitializeComponent();
         }
+
+        private void StartButton_Click(object sender, EventArgs e)
+        {
+            Spiel spiel = new Spiel();
+            spiel.ShowDialog();
+        }
     }
 }
