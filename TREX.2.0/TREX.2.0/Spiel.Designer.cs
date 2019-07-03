@@ -28,7 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.SpielZähler = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
+            // 
+            // SpielZähler
+            // 
+            this.SpielZähler.Enabled = true;
+            this.SpielZähler.Interval = 20;
+            this.SpielZähler.Tick += new System.EventHandler(this.GaameEvent);
             // 
             // Spiel
             // 
@@ -38,11 +46,14 @@
             this.Name = "Spiel";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Spiel_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Spiel_KeyDown);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Timer SpielZähler;
     }
 }
 

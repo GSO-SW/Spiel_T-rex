@@ -17,8 +17,12 @@ namespace TREX._2._0
         Image T_rex;
         Bitmap[] Kakteen;
         List<Rectangle> rectangles;
-        int Standardhöhe = 261;
+        int Standardhöhe= 261;
+        int Sprungkraft = 0;
         int Höhe = 261;
+        int Score = 0;
+        bool springen = false;
+        
         #endregion
         public Spiel()
         {
@@ -26,7 +30,7 @@ namespace TREX._2._0
             T_rex = Properties.Resources.rennen;
             Kakteen = new Bitmap[] { Properties.Resources._2Kaktus, Properties.Resources.Kaktus };
             rectangles = new List<Rectangle>();
-
+            DoubleBuffered = true;
             rectangles.Add(new Rectangle(500, Standardhöhe, 40, 40));
             rectangles.Add(new Rectangle(700, Standardhöhe, 40, 40));
         }
@@ -42,10 +46,44 @@ namespace TREX._2._0
             Pen SchwarzeStift = Pens.Black;
             Graphics graphics = e.Graphics;
             graphics.DrawLine(SchwarzeStift, 0, 300, 100000, 300);
-            graphics.DrawImage(T_rex,20,Höhe,T_rex.Width,T_rex.Height);
+            graphics.DrawImage(T_rex, 20, Höhe, T_rex.Width, T_rex.Height);
             graphics.DrawImage(Kakteen[0], rectangles[0]);
             graphics.DrawImage(Kakteen[1], rectangles[1]);
         }
 
+        private void GaameEvent(object sender, EventArgs e)
+        {
+            Springen();
+            Rändern();
+        }
+        private void Rändern()
+        {
+            this.Invalidate();
+        }
+
+        private void Springen()
+        {
+            Höhe += Sprungkraft;             // Höhe = höhe + sprungkraft
+            Sprungkraft += 3;               // Sprungkraft = Sprungkraft + 10 
+
+            //Dinosaurier ist gesprungen 
+            if (Höhe > Standardhöhe - 3)
+            {
+                Höhe = Standardhöhe - 3;
+                Sprungkraft = 0;
+            }
+            if (Höhe == Standardhöhe - 3)
+
+                springen = false;
+        }
+
+        private void Spiel_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space && !springen)
+            {
+                Sprungkraft = -30;
+                springen = true;
+            }
+        }
     }
 }
