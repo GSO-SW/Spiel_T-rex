@@ -28,10 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // Spiel
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1359, 693);
+            this.Name = "Spiel";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Spiel_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
