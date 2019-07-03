@@ -34,6 +34,10 @@ namespace TREX._2._0
             DoubleBuffered = true;
             rectangles.Add(new Rectangle(500, Standardhöhe, 40, 40));  //fügt die pposition der rectamgels hinzu
             rectangles.Add(new Rectangle(700, Standardhöhe, 40, 40));
+            if (ImageAnimator.CanAnimate(T_rex))
+            {
+                ImageAnimator.Animate(T_rex, new EventHandler(timer1_Tick));
+            }
         }
 
         private void Spiel_Load(object sender, EventArgs e)
@@ -46,6 +50,7 @@ namespace TREX._2._0
             base.OnPaint(e);
             Pen SchwarzeStift = Pens.Black;
             Graphics graphics = e.Graphics;
+            ImageAnimator.UpdateFrames();
             graphics.DrawString("Score:" + Score, new Font("Comic Sans MS", 10.0f), Brushes.Black, new Point(5, 10));
             graphics.DrawLine(SchwarzeStift, 0, 300, 100000, 300);
             graphics.DrawImage(T_rex, 20, Höhe, T_rex.Width, T_rex.Height);
@@ -124,9 +129,8 @@ namespace TREX._2._0
                 if (rect.IntersectsWith(rectangles[i]))
                 {
                     Überprüfen = true;
-                    ImageAnimator.StopAnimate(T_rex, new EventHandler(GameEvent));
+                    ImageAnimator.StopAnimate(T_rex, new EventHandler(timer1_Tick));
                 }
-
             }
             if (Überprüfen)
             {
@@ -134,6 +138,11 @@ namespace TREX._2._0
                 MessageBox.Show("Verloren und deine erreichte Punktzahl lautet:" + Score);
                 Close();
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -33,22 +33,24 @@
             // 
             // StartButton
             // 
-            this.StartButton.Location = new System.Drawing.Point(201, 204);
+            this.StartButton.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.StartButton.Location = new System.Drawing.Point(398, 491);
             this.StartButton.Name = "StartButton";
-            this.StartButton.Size = new System.Drawing.Size(230, 139);
+            this.StartButton.Size = new System.Drawing.Size(258, 45);
             this.StartButton.TabIndex = 0;
             this.StartButton.Text = "Start";
-            this.StartButton.UseVisualStyleBackColor = true;
+            this.StartButton.UseVisualStyleBackColor = false;
             this.StartButton.Click += new System.EventHandler(this.StartButton_Click);
             // 
             // Menue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1096, 664);
             this.Controls.Add(this.StartButton);
             this.Name = "Menue";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Menue_Load);
             this.ResumeLayout(false);
 
         }

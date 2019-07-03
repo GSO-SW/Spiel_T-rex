@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.SpielZähler = new System.Windows.Forms.Timer(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // SpielZähler
@@ -37,6 +38,10 @@
             this.SpielZähler.Enabled = true;
             this.SpielZähler.Interval = 20;
             this.SpielZähler.Tick += new System.EventHandler(this.GameEvent);
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Spiel
             // 
@@ -54,6 +59,7 @@
         #endregion
 
         private System.Windows.Forms.Timer SpielZähler;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

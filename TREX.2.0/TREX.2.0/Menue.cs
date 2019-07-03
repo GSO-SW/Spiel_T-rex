@@ -16,11 +16,26 @@ namespace TREX._2._0
         {
             InitializeComponent();
         }
-
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+            e.Graphics.DrawString("TREX SPIEL", new Font("Comic Sans MS", 24), new SolidBrush(Color.Black), new Point(150,60));
+        }
         private void StartButton_Click(object sender, EventArgs e)
         {
             Spiel spiel = new Spiel();
             spiel.ShowDialog();
         }
+
+        private void Menue_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+        }
     }
+    
 }
