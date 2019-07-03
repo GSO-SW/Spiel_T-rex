@@ -1,1 +1,3 @@
 # Spiel_T-rex
+Das Spiel wurde von mir programmiert und das Repo habe ich erst jetzt erstellt für das Spiel.
+Die Anleitung folgt...
