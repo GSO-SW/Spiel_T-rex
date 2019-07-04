@@ -29,7 +29,7 @@ namespace TREX._2._0
         {
             InitializeComponent();
             T_rex = Properties.Resources.rennen;
-            Kakteen = new Bitmap[] { Properties.Resources._2Kaktus, Properties.Resources.Kaktus }; //fügt die Images in die bitmap hinzu
+            Kakteen = new Bitmap[] { Properties.Resources.Kaktus, Properties.Resources.Kaktus }; //fügt die Images in die bitmap hinzu
             rectangles = new List<Rectangle>();
             DoubleBuffered = true;
             rectangles.Add(new Rectangle(500, Standardhöhe, 40, 40));  //fügt die pposition der rectamgels hinzu
@@ -135,6 +135,7 @@ namespace TREX._2._0
             if (Überprüfen)
             {
                 SpielZähler.Stop();
+                T_rex = Properties.Resources.dead;
                 MessageBox.Show("Verloren und deine erreichte Punktzahl lautet:" + Score);
                 Close();
             }
