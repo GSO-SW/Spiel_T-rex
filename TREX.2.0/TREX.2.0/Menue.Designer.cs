@@ -35,10 +35,10 @@
             // StartButton
             // 
             this.StartButton.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.StartButton.Location = new System.Drawing.Point(199, 255);
-            this.StartButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.StartButton.Location = new System.Drawing.Point(398, 490);
+            this.StartButton.Margin = new System.Windows.Forms.Padding(4);
             this.StartButton.Name = "StartButton";
-            this.StartButton.Size = new System.Drawing.Size(129, 23);
+            this.StartButton.Size = new System.Drawing.Size(258, 44);
             this.StartButton.TabIndex = 0;
             this.StartButton.Text = "Start";
             this.StartButton.UseVisualStyleBackColor = false;
@@ -47,9 +47,10 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(357, 255);
+            this.button1.Location = new System.Drawing.Point(714, 490);
+            this.button1.Margin = new System.Windows.Forms.Padding(6);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(150, 44);
             this.button1.TabIndex = 1;
             this.button1.Text = "Schließen";
             this.button1.UseVisualStyleBackColor = false;
@@ -57,13 +58,14 @@
             // 
             // Menue
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(548, 345);
+            this.BackgroundImage = global::TREX._2._0.Properties.Resources.Level3;
+            this.ClientSize = new System.Drawing.Size(976, 632);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.StartButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Menue";
             this.Text = "Form1";
             this.TopMost = true;

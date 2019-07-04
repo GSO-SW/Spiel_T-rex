@@ -63,16 +63,6 @@ namespace TREX._2._0.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _2d_game_backgrounds_10024_imgs_10024_1 {
-            get {
-                object obj = ResourceManager.GetObject("2d-game-backgrounds-10024_imgs_10024_1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap _2Kaktus {
             get {
                 object obj = ResourceManager.GetObject("_2Kaktus", resourceCulture);
@@ -103,9 +93,38 @@ namespace TREX._2._0.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Ersatz {
+            get {
+                object obj = ResourceManager.GetObject("Ersatz", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.IO.UnmanagedMemoryStream ähnlich wie System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Gatling_Gun_Firing_2x_SoundBible_com_119951091 {
+            get {
+                return ResourceManager.GetStream("Gatling_Gun_Firing_2x_SoundBible_com_119951091", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Kaktus {
             get {
                 object obj = ResourceManager.GetObject("Kaktus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Level3 {
+            get {
+                object obj = ResourceManager.GetObject("Level3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -117,6 +136,15 @@ namespace TREX._2._0.Properties {
             get {
                 object obj = ResourceManager.GetObject("rennen", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.IO.UnmanagedMemoryStream ähnlich wie System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Sound {
+            get {
+                return ResourceManager.GetStream("Sound", resourceCulture);
             }
         }
     }

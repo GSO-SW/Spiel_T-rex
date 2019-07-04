@@ -7,13 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace TREX._2._0
 {
 
     public partial class Spiel : Form
     {
+
         #region Eigenschaften
+        SoundPlayer SpielMusik = new SoundPlayer(Properties.Resources.Sound);
         Image T_rex;
         Bitmap[] Kakteen;
         List<Rectangle> rectangles;
@@ -28,13 +31,14 @@ namespace TREX._2._0
         public Spiel()
         {
             InitializeComponent();
+            SpielMusik.Play();
             T_rex = Properties.Resources.rennen;
             Kakteen = new Bitmap[] { Properties.Resources.Kaktus, Properties.Resources.Kaktus }; //fügt die Images in die bitmap hinzu
             rectangles = new List<Rectangle>();
             DoubleBuffered = true;
             rectangles.Add(new Rectangle(500, Standardhöhe, 40, 40));  //fügt die pposition der rectamgels hinzu
             rectangles.Add(new Rectangle(700, Standardhöhe, 40, 40));
-            rectangles.Add(new Rectangle(200, Standardhöhe, 40, 40));
+            rectangles.Add(new Rectangle(1600, Standardhöhe, 40, 40));
             rectangles.Add(new Rectangle(1100, Standardhöhe, 40, 40));
             if (ImageAnimator.CanAnimate(T_rex))
             {
@@ -44,7 +48,7 @@ namespace TREX._2._0
 
         private void Spiel_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -60,6 +64,7 @@ namespace TREX._2._0
             graphics.DrawImage(Kakteen[1], rectangles[1]);
             graphics.DrawImage(Kakteen[1], rectangles[2]);
             graphics.DrawImage(Kakteen[1], rectangles[3]);
+         
         }
         //Das ist der Timer 
         private void GameEvent(object sender, EventArgs e)
@@ -82,7 +87,7 @@ namespace TREX._2._0
                 if (Score >= 300)
                 {
                     hindernis_geschwindigkeit = -9;
-
+                  
                 }
                 if (Score >= 1100)
                 {
@@ -121,6 +126,14 @@ namespace TREX._2._0
             {
                 Sprungkraft = -30;
                 springen = true;
+                if (Score >= 600)
+                {
+                    Sprungkraft = -40;
+                }
+                if (Score>1000)
+                {
+                    Sprungkraft = -30;
+                }
             }
         }
         private void Kollision()
@@ -141,6 +154,7 @@ namespace TREX._2._0
             {
                 SpielZähler.Stop();
                 T_rex = Properties.Resources.dead;
+                SpielMusik.Stop();
                 MessageBox.Show("Verloren und deine erreichte Punktzahl lautet:" + Score);
                 Close();
             }

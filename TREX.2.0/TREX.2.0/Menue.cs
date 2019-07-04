@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace TREX._2._0
 {
     public partial class Menue : Form
     {
+        SoundPlayer spiel = new SoundPlayer(Properties.Resources.Gatling_Gun_Firing_2x_SoundBible_com_119951091);
+        
         public Menue()
         {
             InitializeComponent();
@@ -29,7 +32,7 @@ namespace TREX._2._0
 
         private void Menue_Load(object sender, EventArgs e)
         {
-
+      
         }
 
         private void Timer1_Tick(object sender, EventArgs e)

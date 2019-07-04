@@ -107,5 +107,20 @@
   <ItemGroup>
     <None Include="Resources\BÜMEEE.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ersatz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Level3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gatling Gun Firing 2x-SoundBible.com-119951091.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Our Mountain v003.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sound.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
