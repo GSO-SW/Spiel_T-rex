@@ -41,15 +41,19 @@
             // 
             // timer1
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
             // Spiel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1359, 693);
+            this.BackgroundImage = global::TREX._2._0.Properties.Resources.BÜMEEE;
+            this.ClientSize = new System.Drawing.Size(850, 424);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Spiel";
             this.Text = "Form1";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.Spiel_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Spiel_KeyDown);
             this.ResumeLayout(false);

@@ -101,5 +101,11 @@
   <ItemGroup>
     <None Include="Resources\running.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2d-game-backgrounds-10024_imgs_10024_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BÜMEEE.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

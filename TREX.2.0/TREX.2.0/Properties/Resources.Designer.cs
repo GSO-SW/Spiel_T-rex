@@ -63,9 +63,29 @@ namespace TREX._2._0.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _2d_game_backgrounds_10024_imgs_10024_1 {
+            get {
+                object obj = ResourceManager.GetObject("2d-game-backgrounds-10024_imgs_10024_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _2Kaktus {
             get {
                 object obj = ResourceManager.GetObject("_2Kaktus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BÜMEEE {
+            get {
+                object obj = ResourceManager.GetObject("BÜMEEE", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

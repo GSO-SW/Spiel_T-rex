@@ -17,9 +17,9 @@ namespace TREX._2._0
         Image T_rex;
         Bitmap[] Kakteen;
         List<Rectangle> rectangles;
-        int Standardhöhe = 261;
+        int Standardhöhe = 258;
         int Sprungkraft = 0;
-        int Höhe = 261;
+        int Höhe = 258;
         int Score = 0;
         int hindernis_geschwindigkeit = -6;
         bool springen = false;
@@ -34,9 +34,11 @@ namespace TREX._2._0
             DoubleBuffered = true;
             rectangles.Add(new Rectangle(500, Standardhöhe, 40, 40));  //fügt die pposition der rectamgels hinzu
             rectangles.Add(new Rectangle(700, Standardhöhe, 40, 40));
+            rectangles.Add(new Rectangle(200, Standardhöhe, 40, 40));
+            rectangles.Add(new Rectangle(1100, Standardhöhe, 40, 40));
             if (ImageAnimator.CanAnimate(T_rex))
             {
-                ImageAnimator.Animate(T_rex, new EventHandler(timer1_Tick));
+                ImageAnimator.Animate(T_rex, new EventHandler(Timer1_Tick));
             }
         }
 
@@ -48,14 +50,16 @@ namespace TREX._2._0
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            Pen SchwarzeStift = Pens.Black;
+            Pen GrünerStift = Pens.Green;
             Graphics graphics = e.Graphics;
             ImageAnimator.UpdateFrames();
             graphics.DrawString("Score:" + Score, new Font("Comic Sans MS", 10.0f), Brushes.Black, new Point(5, 10));
-            graphics.DrawLine(SchwarzeStift, 0, 300, 100000, 300);
+     //     graphics.DrawLine(GrünerStift, 0, 300, 100000, 300);
             graphics.DrawImage(T_rex, 20, Höhe, T_rex.Width, T_rex.Height);
             graphics.DrawImage(Kakteen[0], rectangles[0]);
             graphics.DrawImage(Kakteen[1], rectangles[1]);
+            graphics.DrawImage(Kakteen[1], rectangles[2]);
+            graphics.DrawImage(Kakteen[1], rectangles[3]);
         }
         //Das ist der Timer 
         private void GameEvent(object sender, EventArgs e)
@@ -66,7 +70,7 @@ namespace TREX._2._0
                 if (rectangles[i].X + rectangles[i].Width < 0)   //ist die koordinate kleiner null
                 {
                     Random Rand = new Random();
-                    point = new Point(this.Width + Rand.Next(10, 120), rectangles[i].Y);  // wir erstellen einen neuen punkt mit den aktualisierten Daten
+                    point = new Point(this.Width + Rand.Next(210, 520), rectangles[i].Y);  // wir erstellen einen neuen punkt mit den aktualisierten Daten
                 }
                 else
                     point = new Point(rectangles[i].X + hindernis_geschwindigkeit, rectangles[i].Y);  // wir erstellen einen neuen punkt mit den aktualisierten Daten
@@ -77,11 +81,12 @@ namespace TREX._2._0
 
                 if (Score >= 300)
                 {
-                    hindernis_geschwindigkeit = -16;
+                    hindernis_geschwindigkeit = -9;
+
                 }
                 if (Score >= 1100)
                 {
-                    hindernis_geschwindigkeit = -24;
+                    hindernis_geschwindigkeit = -12;
                 }
             }
             Springen();
@@ -129,7 +134,7 @@ namespace TREX._2._0
                 if (rect.IntersectsWith(rectangles[i]))
                 {
                     Überprüfen = true;
-                    ImageAnimator.StopAnimate(T_rex, new EventHandler(timer1_Tick));
+                    ImageAnimator.StopAnimate(T_rex, new EventHandler(Timer1_Tick));
                 }
             }
             if (Überprüfen)
@@ -141,7 +146,7 @@ namespace TREX._2._0
             }
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void Timer1_Tick(object sender, EventArgs e)
         {
 
         }
