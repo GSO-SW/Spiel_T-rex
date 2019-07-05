@@ -47,7 +47,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::TREX._2._0.Properties.Resources.BÜMEEE;
+            this.BackgroundImage = global::TREX._2._0.Properties.Resources.BÜMEEE3;
             this.ClientSize = new System.Drawing.Size(850, 424);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -56,6 +56,7 @@
             this.TopMost = true;
             this.Load += new System.EventHandler(this.Spiel_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Spiel_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Spiel_KeyUp);
             this.ResumeLayout(false);
 
         }

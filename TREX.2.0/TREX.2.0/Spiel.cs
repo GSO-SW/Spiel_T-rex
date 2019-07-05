@@ -17,9 +17,11 @@ namespace TREX._2._0
 
         #region Eigenschaften
         SoundPlayer SpielMusik = new SoundPlayer(Properties.Resources.Sound);
-        Image T_rex;
-        Bitmap[] Kakteen;
+        
         List<Rectangle> rectangles;
+        Kakteen Kakteeeen = new Kakteen();
+        Charakter Charakter = new Charakter();
+
         int Standardhöhe = 258;
         int Sprungkraft = 0;
         int Höhe = 258;
@@ -32,17 +34,17 @@ namespace TREX._2._0
         {
             InitializeComponent();
             SpielMusik.Play();
-            T_rex = Properties.Resources.rennen;
-            Kakteen = new Bitmap[] { Properties.Resources.Kaktus, Properties.Resources.Kaktus }; //fügt die Images in die bitmap hinzu
+           
+            Kakteeeen.Kakteeen = new Bitmap[] { Properties.Resources.Kaktus }; //fügt die Images in die bitmap hinzu
             rectangles = new List<Rectangle>();
             DoubleBuffered = true;
             rectangles.Add(new Rectangle(500, Standardhöhe, 40, 40));  //fügt die pposition der rectamgels hinzu
             rectangles.Add(new Rectangle(700, Standardhöhe, 40, 40));
             rectangles.Add(new Rectangle(1600, Standardhöhe, 40, 40));
             rectangles.Add(new Rectangle(1100, Standardhöhe, 40, 40));
-            if (ImageAnimator.CanAnimate(T_rex))
+            if (ImageAnimator.CanAnimate(Charakter.T_rex))
             {
-                ImageAnimator.Animate(T_rex, new EventHandler(Timer1_Tick));
+                ImageAnimator.Animate(Charakter.T_rex, new EventHandler(Timer1_Tick));
             }
         }
 
@@ -59,14 +61,14 @@ namespace TREX._2._0
             ImageAnimator.UpdateFrames();
             graphics.DrawString("Score:" + Score, new Font("Comic Sans MS", 10.0f), Brushes.Black, new Point(5, 10));
      //     graphics.DrawLine(GrünerStift, 0, 300, 100000, 300);
-            graphics.DrawImage(T_rex, 20, Höhe, T_rex.Width, T_rex.Height);
-            graphics.DrawImage(Kakteen[0], rectangles[0]);
-            graphics.DrawImage(Kakteen[1], rectangles[1]);
-            graphics.DrawImage(Kakteen[1], rectangles[2]);
-            graphics.DrawImage(Kakteen[1], rectangles[3]);
+            graphics.DrawImage(Charakter.T_rex, 20, Höhe, Charakter.T_rex.Width, Charakter.T_rex.Height);
+            graphics.DrawImage(Kakteeeen.Kakteeen[0], rectangles[0]);
+            graphics.DrawImage(Kakteeeen.Kakteeen[0], rectangles[1]);
+            graphics.DrawImage(Kakteeeen.Kakteeen[0], rectangles[2]);
+            graphics.DrawImage(Kakteeeen.Kakteeen[0], rectangles[3]);
          
         }
-        //Das ist der Timer 
+        //Timer 
         private void GameEvent(object sender, EventArgs e)
         {
             for (int i = rectangles.Count - 1; i >= 0; i--)       // wir zöhlen um einas ab 
@@ -98,7 +100,7 @@ namespace TREX._2._0
             Rändern();
             Kollision();
         }
-        //Bilder sollen Laden
+        //Die Bilder laden
         private void Rändern()
         {
             this.Invalidate();
@@ -107,7 +109,7 @@ namespace TREX._2._0
         private void Springen()
         {
             Höhe += Sprungkraft;             // Höhe = höhe + sprungkraft
-            Sprungkraft += 3;               // Sprungkraft = Sprungkraft + 10 
+            Sprungkraft += 3;               // Sprungkraft = Sprungkraft + 3
 
             //Dinosaurier ist gesprungen 
             if (Höhe > Standardhöhe - 3)
@@ -126,6 +128,8 @@ namespace TREX._2._0
             {
                 Sprungkraft = -30;
                 springen = true;
+               
+                
                 if (Score >= 600)
                 {
                     Sprungkraft = -40;
@@ -141,19 +145,19 @@ namespace TREX._2._0
 
             bool Überprüfen = false;
 
-            Rectangle rect = new Rectangle(20, Höhe, T_rex.Width, T_rex.Height);
+            Rectangle rect = new Rectangle(20, Höhe, Charakter.T_rex.Width, Charakter.T_rex.Height);
             for (int i = 0; i < rectangles.Count; i++)
             {
                 if (rect.IntersectsWith(rectangles[i]))
                 {
                     Überprüfen = true;
-                    ImageAnimator.StopAnimate(T_rex, new EventHandler(Timer1_Tick));
+                    ImageAnimator.StopAnimate(Charakter.T_rex, new EventHandler(Timer1_Tick));
                 }
             }
             if (Überprüfen)
             {
                 SpielZähler.Stop();
-                T_rex = Properties.Resources.dead;
+                Charakter.T_rex = Properties.Resources.dead;
                 SpielMusik.Stop();
                 MessageBox.Show("Verloren und deine erreichte Punktzahl lautet:" + Score);
                 Close();
@@ -163,6 +167,12 @@ namespace TREX._2._0
         private void Timer1_Tick(object sender, EventArgs e)
         {
 
+        }
+
+        private void Spiel_KeyUp(object sender, KeyEventArgs e)
+        {
+            
+            
         }
     }
 }

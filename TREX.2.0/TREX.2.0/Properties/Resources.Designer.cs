@@ -83,6 +83,16 @@ namespace TREX._2._0.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BÜMEEE3 {
+            get {
+                object obj = ResourceManager.GetObject("BÜMEEE3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap dead {
             get {
                 object obj = ResourceManager.GetObject("dead", resourceCulture);
@@ -106,6 +116,26 @@ namespace TREX._2._0.Properties {
         internal static System.IO.UnmanagedMemoryStream Gatling_Gun_Firing_2x_SoundBible_com_119951091 {
             get {
                 return ResourceManager.GetStream("Gatling_Gun_Firing_2x_SoundBible_com_119951091", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Hintergrund {
+            get {
+                object obj = ResourceManager.GetObject("Hintergrund", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Hintergrund1 {
+            get {
+                object obj = ResourceManager.GetObject("Hintergrund1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -145,6 +175,15 @@ namespace TREX._2._0.Properties {
         internal static System.IO.UnmanagedMemoryStream Sound {
             get {
                 return ResourceManager.GetStream("Sound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.IO.UnmanagedMemoryStream ähnlich wie System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Springen {
+            get {
+                return ResourceManager.GetStream("Springen", resourceCulture);
             }
         }
     }

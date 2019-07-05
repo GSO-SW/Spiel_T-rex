@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Charakter.cs" />
+    <Compile Include="Kakteen.cs" />
     <Compile Include="Menue.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,7 +89,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\2Kaktus.gif" />
@@ -121,6 +125,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Sound.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Springen.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hintergrund.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hintergrund1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BÜMEEE3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -35,7 +35,7 @@
             // StartButton
             // 
             this.StartButton.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.StartButton.Location = new System.Drawing.Point(398, 490);
+            this.StartButton.Location = new System.Drawing.Point(360, 500);
             this.StartButton.Margin = new System.Windows.Forms.Padding(4);
             this.StartButton.Name = "StartButton";
             this.StartButton.Size = new System.Drawing.Size(258, 44);
@@ -47,7 +47,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(714, 490);
+            this.button1.Location = new System.Drawing.Point(663, 500);
             this.button1.Margin = new System.Windows.Forms.Padding(6);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(150, 44);
@@ -60,8 +60,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::TREX._2._0.Properties.Resources.Level3;
-            this.ClientSize = new System.Drawing.Size(976, 632);
+            this.BackgroundImage = global::TREX._2._0.Properties.Resources.Hintergrund1;
+            this.ClientSize = new System.Drawing.Size(1059, 579);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.StartButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
