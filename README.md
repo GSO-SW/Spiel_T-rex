@@ -1,9 +1,9 @@
 # Spiel_T-rex
 Das Spiel wurde von mir programmiert und das Repo habe ich erst jetzt erstellt für das Spiel.
-Die Anleitung folgt...
+Die Anleitung:
 1.Spiel Starten 
-2.Ab 600 Punkte kann man der chrackter höher springen bis zur Punktezahl 1000
-3.Viel Spaß
+2.Ab 600 Punkte kann der Charackter höher springen bis zur Punktezahl 1000
+3.Viel Spaß beim Spielen.
 
 
 
