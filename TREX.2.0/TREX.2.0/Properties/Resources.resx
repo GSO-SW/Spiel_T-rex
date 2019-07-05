@@ -124,9 +124,6 @@
   <data name="rennen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\running.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BÜMEEE" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BÜMEEE.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Springen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Springen.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -156,5 +153,17 @@
   </data>
   <data name="Mert" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Mert.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Nachts" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Nachts.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Mittag" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Mittag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BÜMEEE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BÜMEEE.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Mittagup" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Mittagup.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

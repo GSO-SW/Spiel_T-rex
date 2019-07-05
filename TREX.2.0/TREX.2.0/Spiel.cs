@@ -21,6 +21,7 @@ namespace TREX._2._0
         Charakter Charakter = new Charakter();
 
         public int   Score = 0;
+        public int   Level = 1;
         private bool springen = false;
 
         #endregion
@@ -48,13 +49,13 @@ namespace TREX._2._0
             Pen GrünerStift = Pens.Green;
             Graphics graphics = e.Graphics;
             ImageAnimator.UpdateFrames();
-            graphics.DrawString("Score:" + Score, new Font("Comic Sans MS", 10.0f), Brushes.Black, new Point(5, 10));
+            graphics.DrawString("Score:" + Score,     new Font("Comic Sans MS", 10.0f), Brushes.Black, new Point(5,10));
+            graphics.DrawString("Level"  + Level , new Font("Comic Sans MS", 10.0f), Brushes.Black, new Point(600,5));
      //     graphics.DrawLine(GrünerStift, 0, 300, 100000, 300);
             graphics.DrawImage(Charakter.T_rex, 20, Charakter.Höhe, Charakter.T_rex.Width, Charakter.T_rex.Height);
             graphics.DrawImage(Kakteeeen.Kakteeen[0], Kakteeeen.rectangles[0]);
             graphics.DrawImage(Kakteeeen.Kakteeen[0], Kakteeeen.rectangles[1]);
             graphics.DrawImage(Kakteeeen.Kakteeen[0], Kakteeeen.rectangles[2]);
-            graphics.DrawImage(Kakteeeen.Kakteeen[0], Kakteeeen.rectangles[3]);
          
         }
         //Timer 
@@ -66,7 +67,7 @@ namespace TREX._2._0
                 if (Kakteeeen.rectangles[i].X + Kakteeeen.rectangles[i].Width < 0)   //ist die koordinate kleiner null
                 {
                     Random Rand = new Random();
-                    point = new Point(this.Width + Rand.Next(210, 520), Kakteeeen.rectangles[i].Y);  // wir erstellen einen neuen punkt mit den aktualisierten Daten
+                    point = new Point(this.Width + Rand.Next(100,200), Kakteeeen.rectangles[i].Y);  // wir erstellen einen neuen punkt mit den aktualisierten Daten
                 }
                 else
                     point = new Point(Kakteeeen.rectangles[i].X + Kakteeeen.Kakteen_geschwindigkeit, Kakteeeen.rectangles[i].Y);  // wir erstellen einen neuen punkt mit den aktualisierten Daten
@@ -75,13 +76,23 @@ namespace TREX._2._0
                 Kakteeeen.rectangles.RemoveAt(i);                                                                                    // entfernt das alte rectangle 
                 Score++;
 
-                if (Score >= 300)
+                if (Score >= 1000)
                 {
-                    Kakteeeen.Kakteen_geschwindigkeit = -9;
+                    Kakteeeen.Kakteen_geschwindigkeit = -8;
+                    BackgroundImage = Properties.Resources.Mittag;
+                    Level = +2;
                 }
-                if (Score >= 1100)
+                if (Score >= 3000)
                 {
-                    Kakteeeen.Kakteen_geschwindigkeit = -12;
+                    Kakteeeen.Kakteen_geschwindigkeit = -11;
+                    BackgroundImage = Properties.Resources.Nachts;
+                    Level = +3;
+                }
+                if (Score >= 3400)
+                {
+                    Kakteeeen.Kakteen_geschwindigkeit = -11;
+                    BackgroundImage = Properties.Resources.Mittag;
+                    Level = +4;
                 }
             }
             Springen();
@@ -112,12 +123,12 @@ namespace TREX._2._0
         //wenn Die Space taste gedrückt wird dann soll die Sprungkraft auf -30 steigen 
         private void Spiel_KeyDown(object sender, KeyEventArgs e)
         {
+           
             if (e.KeyCode == Keys.Space && !springen)
             {
                 Charakter.Sprungkraft = -30;
                 springen = true;
-               
-                
+
                 if (Score >= 600)
                 {
                     Charakter.Sprungkraft = -40;
@@ -126,7 +137,9 @@ namespace TREX._2._0
                 {
                     Charakter.Sprungkraft = -30;
                 }
+              
             }
+         
         }
         private void Kollision()
         {
@@ -159,8 +172,7 @@ namespace TREX._2._0
 
         private void Spiel_KeyUp(object sender, KeyEventArgs e)
         {
-            
-            
+
         }
     }
 }

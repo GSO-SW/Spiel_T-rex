@@ -17,12 +17,12 @@ namespace TREX._2._0
             
         public Kakteen()
         {
-            Kakteeen = new Bitmap[] { Properties.Resources.Kaktus };   //fügt die Images in die bitmap hinzu
+            Kakteeen = new Bitmap[] { Properties.Resources.Kaktus, Properties.Resources.dead};   //fügt die Images in die bitmap hinzu
 
-            rectangles.Add(new Rectangle(500, Standardhöhe, 30, 40));  //fügt die pposition der rectamgels hinzu
-            rectangles.Add(new Rectangle(700, Standardhöhe, 30, 40));
-            rectangles.Add(new Rectangle(1600, Standardhöhe, 30, 40));
-            rectangles.Add(new Rectangle(1100, Standardhöhe, 10, 10));
+            rectangles.Add(new Rectangle(500, Standardhöhe,  30, 40));  //fügt die pposition der rectamgels hinzu
+            rectangles.Add(new Rectangle(2500, Standardhöhe, 20, 40));
+            rectangles.Add(new Rectangle(4500, Standardhöhe, 10, 40));
+       
         }
     }
 }
