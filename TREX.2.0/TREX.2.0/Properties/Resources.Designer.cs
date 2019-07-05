@@ -63,16 +63,6 @@ namespace TREX._2._0.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _2Kaktus {
-            get {
-                object obj = ResourceManager.GetObject("_2Kaktus", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap BÜMEEE {
             get {
                 object obj = ResourceManager.GetObject("BÜMEEE", resourceCulture);
@@ -155,6 +145,16 @@ namespace TREX._2._0.Properties {
         internal static System.Drawing.Bitmap Level3 {
             get {
                 object obj = ResourceManager.GetObject("Level3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Mert {
+            get {
+                object obj = ResourceManager.GetObject("Mert", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

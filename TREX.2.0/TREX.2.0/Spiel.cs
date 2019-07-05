@@ -20,8 +20,8 @@ namespace TREX._2._0
         Kakteen Kakteeeen = new Kakteen();
         Charakter Charakter = new Charakter();
 
-        public   int Score = 0;
-        bool springen = false;
+        public int   Score = 0;
+        private bool springen = false;
 
         #endregion
         public Spiel()
@@ -78,7 +78,6 @@ namespace TREX._2._0
                 if (Score >= 300)
                 {
                     Kakteeeen.Kakteen_geschwindigkeit = -9;
-                  
                 }
                 if (Score >= 1100)
                 {
@@ -148,14 +147,14 @@ namespace TREX._2._0
                 SpielZähler.Stop();
                 Charakter.T_rex = Properties.Resources.dead;
                 SpielMusik.Stop();
-                MessageBox.Show("Verloren und deine erreichte Punktzahl lautet:" + Score);
+                MessageBox.Show("Verloren. Ihre erreichte Punktzahl ist: "  + Score);
                 Close();
             }
         }
 
         public void Timer1_Tick(object sender, EventArgs e)
         {
-
+            
         }
 
         private void Spiel_KeyUp(object sender, KeyEventArgs e)
