@@ -17,16 +17,10 @@ namespace TREX._2._0
 
         #region Eigenschaften
         SoundPlayer SpielMusik = new SoundPlayer(Properties.Resources.Sound);
-        
-        List<Rectangle> rectangles;
         Kakteen Kakteeeen = new Kakteen();
         Charakter Charakter = new Charakter();
 
-        int Standardhöhe = 258;
-        int Sprungkraft = 0;
-        int Höhe = 258;
-        int Score = 0;
-        int hindernis_geschwindigkeit = -6;
+        public   int Score = 0;
         bool springen = false;
 
         #endregion
@@ -35,13 +29,8 @@ namespace TREX._2._0
             InitializeComponent();
             SpielMusik.Play();
            
-            Kakteeeen.Kakteeen = new Bitmap[] { Properties.Resources.Kaktus }; //fügt die Images in die bitmap hinzu
-            rectangles = new List<Rectangle>();
             DoubleBuffered = true;
-            rectangles.Add(new Rectangle(500, Standardhöhe, 40, 40));  //fügt die pposition der rectamgels hinzu
-            rectangles.Add(new Rectangle(700, Standardhöhe, 40, 40));
-            rectangles.Add(new Rectangle(1600, Standardhöhe, 40, 40));
-            rectangles.Add(new Rectangle(1100, Standardhöhe, 40, 40));
+          
             if (ImageAnimator.CanAnimate(Charakter.T_rex))
             {
                 ImageAnimator.Animate(Charakter.T_rex, new EventHandler(Timer1_Tick));
@@ -61,39 +50,39 @@ namespace TREX._2._0
             ImageAnimator.UpdateFrames();
             graphics.DrawString("Score:" + Score, new Font("Comic Sans MS", 10.0f), Brushes.Black, new Point(5, 10));
      //     graphics.DrawLine(GrünerStift, 0, 300, 100000, 300);
-            graphics.DrawImage(Charakter.T_rex, 20, Höhe, Charakter.T_rex.Width, Charakter.T_rex.Height);
-            graphics.DrawImage(Kakteeeen.Kakteeen[0], rectangles[0]);
-            graphics.DrawImage(Kakteeeen.Kakteeen[0], rectangles[1]);
-            graphics.DrawImage(Kakteeeen.Kakteeen[0], rectangles[2]);
-            graphics.DrawImage(Kakteeeen.Kakteeen[0], rectangles[3]);
+            graphics.DrawImage(Charakter.T_rex, 20, Charakter.Höhe, Charakter.T_rex.Width, Charakter.T_rex.Height);
+            graphics.DrawImage(Kakteeeen.Kakteeen[0], Kakteeeen.rectangles[0]);
+            graphics.DrawImage(Kakteeeen.Kakteeen[0], Kakteeeen.rectangles[1]);
+            graphics.DrawImage(Kakteeeen.Kakteeen[0], Kakteeeen.rectangles[2]);
+            graphics.DrawImage(Kakteeeen.Kakteeen[0], Kakteeeen.rectangles[3]);
          
         }
         //Timer 
         private void GameEvent(object sender, EventArgs e)
         {
-            for (int i = rectangles.Count - 1; i >= 0; i--)       // wir zöhlen um einas ab 
+            for (int i = Kakteeeen.rectangles.Count - 1; i >= 0; i--)       // wir zöhlen um einas ab 
             {
                 Point point;
-                if (rectangles[i].X + rectangles[i].Width < 0)   //ist die koordinate kleiner null
+                if (Kakteeeen.rectangles[i].X + Kakteeeen.rectangles[i].Width < 0)   //ist die koordinate kleiner null
                 {
                     Random Rand = new Random();
-                    point = new Point(this.Width + Rand.Next(210, 520), rectangles[i].Y);  // wir erstellen einen neuen punkt mit den aktualisierten Daten
+                    point = new Point(this.Width + Rand.Next(210, 520), Kakteeeen.rectangles[i].Y);  // wir erstellen einen neuen punkt mit den aktualisierten Daten
                 }
                 else
-                    point = new Point(rectangles[i].X + hindernis_geschwindigkeit, rectangles[i].Y);  // wir erstellen einen neuen punkt mit den aktualisierten Daten
+                    point = new Point(Kakteeeen.rectangles[i].X + Kakteeeen.Kakteen_geschwindigkeit, Kakteeeen.rectangles[i].Y);  // wir erstellen einen neuen punkt mit den aktualisierten Daten
 
-                rectangles.Add(new Rectangle(point, rectangles[i].Size));                                                  // ertstellen ein rectangle und fügen das in die liste hinzu  
-                rectangles.RemoveAt(i);                                                                                    // entfernt das alte rectangle 
+                Kakteeeen.rectangles.Add(new Rectangle(point, Kakteeeen.rectangles[i].Size));                                                  // ertstellen ein rectangle und fügen das in die liste hinzu  
+                Kakteeeen.rectangles.RemoveAt(i);                                                                                    // entfernt das alte rectangle 
                 Score++;
 
                 if (Score >= 300)
                 {
-                    hindernis_geschwindigkeit = -9;
+                    Kakteeeen.Kakteen_geschwindigkeit = -9;
                   
                 }
                 if (Score >= 1100)
                 {
-                    hindernis_geschwindigkeit = -12;
+                    Kakteeeen.Kakteen_geschwindigkeit = -12;
                 }
             }
             Springen();
@@ -108,16 +97,16 @@ namespace TREX._2._0
 
         private void Springen()
         {
-            Höhe += Sprungkraft;             // Höhe = höhe + sprungkraft
-            Sprungkraft += 3;               // Sprungkraft = Sprungkraft + 3
+            Charakter.Höhe += Charakter.Sprungkraft;             // Höhe = höhe + sprungkraft
+            Charakter.Sprungkraft += 3;               // Sprungkraft = Sprungkraft + 3
 
             //Dinosaurier ist gesprungen 
-            if (Höhe > Standardhöhe - 3)
+            if (Charakter.Höhe > Kakteeeen.Standardhöhe - 3)
             {
-                Höhe = Standardhöhe - 3;
-                Sprungkraft = 0;
+                Charakter.Höhe = Kakteeeen.Standardhöhe - 3;
+                Charakter.Sprungkraft = 0;
             }
-            if (Höhe == Standardhöhe - 3)
+            if (Charakter.Höhe == Kakteeeen.Standardhöhe - 3)
 
                 springen = false;
         }
@@ -126,17 +115,17 @@ namespace TREX._2._0
         {
             if (e.KeyCode == Keys.Space && !springen)
             {
-                Sprungkraft = -30;
+                Charakter.Sprungkraft = -30;
                 springen = true;
                
                 
                 if (Score >= 600)
                 {
-                    Sprungkraft = -40;
+                    Charakter.Sprungkraft = -40;
                 }
                 if (Score>1000)
                 {
-                    Sprungkraft = -30;
+                    Charakter.Sprungkraft = -30;
                 }
             }
         }
@@ -145,10 +134,10 @@ namespace TREX._2._0
 
             bool Überprüfen = false;
 
-            Rectangle rect = new Rectangle(20, Höhe, Charakter.T_rex.Width, Charakter.T_rex.Height);
-            for (int i = 0; i < rectangles.Count; i++)
+            Rectangle rect = new Rectangle(20, Charakter.Höhe, Charakter.T_rex.Width, Charakter.T_rex.Height);
+            for (int i = 0; i < Kakteeeen.rectangles.Count; i++)
             {
-                if (rect.IntersectsWith(rectangles[i]))
+                if (rect.IntersectsWith(Kakteeeen.rectangles[i]))
                 {
                     Überprüfen = true;
                     ImageAnimator.StopAnimate(Charakter.T_rex, new EventHandler(Timer1_Tick));
@@ -164,7 +153,7 @@ namespace TREX._2._0
             }
         }
 
-        private void Timer1_Tick(object sender, EventArgs e)
+        public void Timer1_Tick(object sender, EventArgs e)
         {
 
         }

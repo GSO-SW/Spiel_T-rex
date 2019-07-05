@@ -45,12 +45,12 @@
             // 
             // Spiel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::TREX._2._0.Properties.Resources.BÜMEEE3;
-            this.ClientSize = new System.Drawing.Size(850, 424);
+            this.ClientSize = new System.Drawing.Size(1700, 815);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Spiel";
             this.Text = "Form1";
             this.TopMost = true;
@@ -62,9 +62,8 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Timer SpielZähler;
         private System.Windows.Forms.Timer timer1;
+        public System.Windows.Forms.Timer SpielZähler;
     }
 }
 

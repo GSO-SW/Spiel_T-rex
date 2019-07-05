@@ -18,8 +18,7 @@ namespace TREX._2._0
 
         public Charakter()
         {
-            T_rex = Properties.Resources.rennen;
+           T_rex = Properties.Resources.rennen;
         }
-       
     }
 }
